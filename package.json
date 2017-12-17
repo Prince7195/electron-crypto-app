@@ -10,7 +10,8 @@
     "package-linux": "electron-packager . --overwrite --asar=true --platform=linux --arch=x64 --icon=./src/assets/icons/linux/btc.png --prune=true --out=release-builds",
     "create-installer-mac": "electron-installer-dmg ./release-builds/Electron\\ tutorial\\ app-darwin-x64/Electron\\ tutorial\\ app.app electron-crypto-app --out=release-builds --overwrite --icon=./src/assets/icons/mac/btc.icns",
     "create-installer-win": "node ./installers/windows/createinstaller.js",
-    "generate": "npm run package-win & npm run create-installer-win"
+    "generate-exe": "npm run package-win & npm run create-installer-win",
+    "generate-mac": "npm run package-mac & npm run create-installer-mac"
   },
   "author": "Vijay Deepak",
   "license": "ISC",
