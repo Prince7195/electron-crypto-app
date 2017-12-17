@@ -1,0 +1,26 @@
+{
+  "name": "electron-crypto-app",
+  "version": "1.0.0",
+  "description": "A simple Crypto currence application",
+  "main": "main.js",
+  "scripts": {
+    "start": "./node_modules/.bin/electron .",
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=./src/assets/icons/mac/btc.icns --prune=true --out=release-builds",
+    "package-win": "electron-packager . --overwrite --asar=true --platform=win32 --arch=ia32 --icon=./src/assets/icons/win/btc.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"CryptoApp\"",
+    "package-linux": "electron-packager . --overwrite --asar=true --platform=linux --arch=x64 --icon=./src/assets/icons/linux/btc.png --prune=true --out=release-builds",
+    "create-installer-mac": "electron-installer-dmg ./release-builds/Electron\\ tutorial\\ app-darwin-x64/Electron\\ tutorial\\ app.app electron-crypto-app --out=release-builds --overwrite --icon=./src/assets/icons/mac/btc.icns",
+    "create-installer-win": "node ./installers/windows/createinstaller.js",
+    "generate": "npm run package-win & npm run create-installer-win"
+  },
+  "author": "Vijay Deepak",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^1.7.9",
+    "electron-packager": "^10.1.0",
+    "electron-winstaller": "^2.6.3"
+  },
+  "dependencies": {
+    "axios": "^0.17.1",
+    "node-notifier": "^5.1.2"
+  }
+}
